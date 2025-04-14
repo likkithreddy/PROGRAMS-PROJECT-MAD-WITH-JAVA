@@ -1,0 +1,41 @@
+cd "C:\Users\likki\OneDrive\Desktop\Programs"
+
+
+sqlite3 programs.db
+
+
+CREATE TABLE IF NOT EXISTS programs (
+    ID INTEGER PRIMARY KEY AUTOINCREMENT,
+    dept_id INTEGER NOT NULL,
+    prog_code TEXT NOT NULL UNIQUE,
+    prog_name TEXT NOT NULL,
+    prog_status TEXT CHECK(prog_status IN ('Active', 'Inactive')),
+    prog_no_sem INTEGER NOT NULL
+);
+.exit
+
+INSERT INTO programs (dept_id, prog_code, prog_name, prog_status, prog_no_sem)
+VALUES (1, 'CS101', 'Computer Science', 'Active', 8),
+       (2, 'EC102', 'Electronics', 'Active', 6);
+
+
+SELECT * FROM programs;
+
+
+.exit
+
+
+
+
+javac -cp ".;sqlite-jdbc.jar" Legends_Programs.java
+javac -cp ".;sqlite-jdbc-3.49.1.0.jar" Legends_Programs.java
+
+
+java -cp ".;sqlite-jdbc.jar" Legends_Programs
+java -cp ".;sqlite-jdbc-3.49.1.0.jar" Legends_Programs
+
+
+
+
+
+
